@@ -1,4 +1,4 @@
-/* Somesh HackVerse Responsive CSS */
+/* Somesh HackVerse V2 - Responsive Design */
 
 
 /* Tablet */
@@ -10,7 +10,7 @@
 
         flex-direction: column;
 
-        gap: 15px;
+        gap: 20px;
 
     }
 
@@ -24,17 +24,16 @@
 
     .cards {
 
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
 
     }
 
 
     .hero h1 {
 
-        font-size: 34px;
+        font-size: 35px;
 
     }
-
 
 }
 
@@ -42,7 +41,7 @@
 
 /* Mobile */
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
 
 
     .navbar {
@@ -54,7 +53,14 @@
     }
 
 
-    .navbar nav a {
+    .logo {
+
+        font-size: 20px;
+
+    }
+
+
+    .navbar a {
 
         display: inline-block;
 
@@ -65,11 +71,12 @@
     }
 
 
+
     .hero {
 
         width: 95%;
 
-        padding: 35px 20px;
+        padding: 40px 20px;
 
     }
 
@@ -81,25 +88,26 @@
     }
 
 
+    .hero p {
+
+        font-size: 15px;
+
+    }
+
+
+
     .cards {
 
-        width: 95%;
+        width:95%;
 
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
 
     }
 
 
     .card {
 
-        padding: 25px;
-
-    }
-
-
-    .logo {
-
-        font-size: 20px;
+        padding:25px;
 
     }
 

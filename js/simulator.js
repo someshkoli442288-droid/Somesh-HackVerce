@@ -1,66 +1,108 @@
-// Somesh HackVerse - Simulator Common Logic
-
+// Somesh HackVerse - Simulation Engine
 
 document.addEventListener("DOMContentLoaded", () => {
 
-
     const form = document.querySelector(".simulator-form");
 
-
-    if (form) {
-
-
-        form.addEventListener("submit", (event) => {
+    if (!form) return;
 
 
-            event.preventDefault();
+    form.addEventListener("submit", (e) => {
+
+        e.preventDefault();
 
 
-            const input = document.querySelector("#username");
+        const input = document.querySelector("#username");
+        const result = document.querySelector("#result");
+        const button = form.querySelector("button");
 
 
-            const result = document.querySelector("#result");
+        if (!input.value.trim()) {
+
+            result.innerHTML = "Please enter username";
+            return;
+
+        }
 
 
-            if (input && result) {
+        const username = input.value.trim();
 
 
-                const value = input.value.trim();
+        button.disabled = true;
+        button.innerHTML = "Processing...";
 
 
-
-                if (value === "") {
-
-
-                    result.innerHTML =
-                    "Please enter a value";
-
-
-                    return;
+        result.innerHTML = `
+            <div class="loading">
+                Initializing simulation...
+            </div>
+        `;
 
 
-                }
+        setTimeout(() => {
 
+            result.innerHTML = `
+                <div class="loading">
+                    Analyzing pattern...
+                </div>
+            `;
 
-
-                // Safe simulator output
-
-                result.innerHTML =
-
-                "Generated Simulation ID: " +
-                value.substring(0,3).toUpperCase() +
-                "-X" +
-                Math.floor(Math.random()*999);
+        }, 1000);
 
 
 
-            }
+        setTimeout(() => {
+
+            result.innerHTML = `
+                <div class="loading">
+                    Generating simulation result...
+                </div>
+            `;
+
+        }, 2000);
 
 
-        });
+
+        setTimeout(() => {
 
 
-    }
+            const code =
+            username.substring(0,3).toUpperCase()
+            + "-"
+            + Math.floor(Math.random() * 9000 + 1000);
+
+
+
+            result.innerHTML = `
+
+            <div class="result-card">
+
+                <h3>Simulation Complete</h3>
+
+                <p>
+                Username:
+                ${username}
+                </p>
+
+                <p>
+                Generated ID:
+                ${code}
+                </p>
+
+            </div>
+
+            `;
+
+
+            button.disabled = false;
+            button.innerHTML = "Generate";
+
+
+        }, 3500);
+
+
+
+    });
 
 
 });

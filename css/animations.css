@@ -1,0 +1,130 @@
+/* Somesh HackVerse Animations */
+
+
+/* Smooth Page Load */
+
+body {
+
+    animation: pageLoad 0.8s ease;
+
+}
+
+
+@keyframes pageLoad {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+/* Card Hover Animation */
+
+.card {
+
+    transition: 
+    transform .3s ease,
+    box-shadow .3s ease;
+
+}
+
+
+.card:hover {
+
+    box-shadow:
+    0 0 25px rgba(0,234,255,0.35);
+
+}
+
+
+
+/* Button Animation */
+
+.primary-btn {
+
+    transition: .3s ease;
+
+}
+
+
+.primary-btn:hover {
+
+    transform: scale(1.05);
+
+    box-shadow:
+    0 0 20px rgba(0,234,255,0.6);
+
+}
+
+
+
+/* Logo Glow */
+
+.logo {
+
+    animation: glow 2s infinite alternate;
+
+}
+
+
+@keyframes glow {
+
+    from {
+
+        text-shadow:
+        0 0 5px #00eaff;
+
+    }
+
+
+    to {
+
+        text-shadow:
+        0 0 20px #00eaff;
+
+    }
+
+}
+
+
+
+/* Glass Floating Effect */
+
+.glass {
+
+    animation: floatEffect 5s ease-in-out infinite;
+
+}
+
+
+@keyframes floatEffect {
+
+    0%,100% {
+
+        transform: translateY(0);
+
+    }
+
+
+    50% {
+
+        transform: translateY(-5px);
+
+    }
+
+}

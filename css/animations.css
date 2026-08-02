@@ -1,22 +1,22 @@
-/* Somesh HackVerse Animations */
+/* Somesh HackVerse V2 - Animations */
 
 
-/* Smooth Page Load */
+/* Page Entry */
 
 body {
 
-    animation: pageLoad 0.8s ease;
+    animation: pageEnter .8s ease;
 
 }
 
 
-@keyframes pageLoad {
+@keyframes pageEnter {
 
     from {
 
         opacity: 0;
 
-        transform: translateY(10px);
+        transform: translateY(15px);
 
     }
 
@@ -33,12 +33,42 @@ body {
 
 
 
-/* Card Hover Animation */
+/* Logo Glow */
+
+.logo {
+
+    animation: logoGlow 2s infinite alternate;
+
+}
+
+
+@keyframes logoGlow {
+
+    from {
+
+        text-shadow: 0 0 5px #00eaff;
+
+    }
+
+
+    to {
+
+        text-shadow: 0 0 25px #00eaff;
+
+    }
+
+}
+
+
+
+/* Card Animation */
 
 .card {
 
-    transition: 
+    transition:
+
     transform .3s ease,
+
     box-shadow .3s ease;
 
 }
@@ -47,7 +77,8 @@ body {
 .card:hover {
 
     box-shadow:
-    0 0 25px rgba(0,234,255,0.35);
+
+    0 0 30px rgba(0,234,255,.35);
 
 }
 
@@ -67,50 +98,39 @@ body {
     transform: scale(1.05);
 
     box-shadow:
-    0 0 20px rgba(0,234,255,0.6);
+
+    0 0 25px rgba(0,234,255,.6);
 
 }
 
 
 
-/* Logo Glow */
-
-.logo {
-
-    animation: glow 2s infinite alternate;
-
-}
-
-
-@keyframes glow {
-
-    from {
-
-        text-shadow:
-        0 0 5px #00eaff;
-
-    }
-
-
-    to {
-
-        text-shadow:
-        0 0 20px #00eaff;
-
-    }
-
-}
-
-
-
-/* Glass Floating Effect */
+/* Glass Floating */
 
 .glass {
 
-    animation: floatEffect 5s ease-in-out infinite;
+    animation: floating 5s ease-in-out infinite;
 
 }
 
+
+
+@keyframes floating {
+
+    0%,100% {
+
+        transform: translateY(0);
+
+    }
+
+
+    50% {
+
+        transform: translateY(-5px);
+
+    }
+
+}
 
 @keyframes floatEffect {
 

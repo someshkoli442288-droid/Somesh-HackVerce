@@ -1,4 +1,4 @@
-// Somesh HackVerse - Main JavaScript
+// Somesh HackVerse V2 - Main JavaScript
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,12 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
         startBtn.addEventListener("click", () => {
 
 
-            document.querySelector(".cards")
-            ?.scrollIntoView({
+            const toolsSection = document.querySelector(".cards");
 
-                behavior: "smooth"
 
-            });
+            if (toolsSection) {
+
+
+                toolsSection.scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
+
+
+            }
 
 
         });

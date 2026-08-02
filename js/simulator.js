@@ -1,4 +1,4 @@
-// Somesh HackVerse - Simulation Engine
+// Somesh HackVerse - Simulator Engine
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!form) return;
 
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", function(e) {
 
         e.preventDefault();
 
@@ -17,7 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const button = form.querySelector("button");
 
 
-        if (!input.value.trim()) {
+        const username = input.value.trim();
+
+
+        if (username === "") {
 
             result.innerHTML = "Please enter username";
             return;
@@ -25,16 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        const username = input.value.trim();
-
-
         button.disabled = true;
         button.innerHTML = "Processing...";
 
 
         result.innerHTML = `
-            <div class="loading">
-                Initializing simulation...
+            <div>
+                Checking input...
             </div>
         `;
 
@@ -42,54 +42,60 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
 
             result.innerHTML = `
-                <div class="loading">
-                    Analyzing pattern...
+                <div>
+                    Generating pattern...
                 </div>
             `;
 
-        }, 1000);
-
-
-
-        setTimeout(() => {
-
-            result.innerHTML = `
-                <div class="loading">
-                    Generating simulation result...
-                </div>
-            `;
-
-        }, 2000);
+        }, 1200);
 
 
 
         setTimeout(() => {
 
 
-            const code =
-            username.substring(0,3).toUpperCase()
-            + "-"
-            + Math.floor(Math.random() * 9000 + 1000);
+            let cleanName = username
+                .replace(/[^a-zA-Z0-9]/g, "")
+                .toLowerCase();
+
+
+
+            if (cleanName.length < 3) {
+
+                cleanName = "user" + cleanName;
+
+            }
+
+
+
+            let numbers = Math.floor(
+                1000 + Math.random() * 9000
+            );
+
+
+
+            let generatedPattern =
+                cleanName + "@" + numbers;
 
 
 
             result.innerHTML = `
 
-            <div class="result-card">
+                <div class="result-card">
 
-                <h3>Simulation Complete</h3>
+                    <h3>Result Generated</h3>
 
-                <p>
-                Username:
-                ${username}
-                </p>
+                    <p>
+                    Username:
+                    ${username}
+                    </p>
 
-                <p>
-                Generated ID:
-                ${code}
-                </p>
+                    <p>
+                    Pattern:
+                    ${generatedPattern}
+                    </p>
 
-            </div>
+                </div>
 
             `;
 
@@ -98,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             button.innerHTML = "Generate";
 
 
-        }, 3500);
+        }, 3000);
 
 
 
